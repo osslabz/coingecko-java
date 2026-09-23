@@ -1,16 +1,17 @@
 # CoinGecko-Java
-![GitHub](https://img.shields.io/github/license/osslabz/bitcoin-commons)
+![GitHub](https://img.shields.io/github/license/osslabz/coingecko-java)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/osslabz/coingecko-java/build-on-push.yml?branch=dev&label=build&logo=git)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/osslabz/coingecko-java/release.yml?branch=dev&label=perform-release&logo=semanticrelease)
+[![Reproducible Builds](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jvm-repo-rebuild/reproducible-central/master/content/net/osslabz/coingecko-java/badge.json)](https://github.com/jvm-repo-rebuild/reproducible-central/blob/master/content/net/osslabz/coingecko-java/README.md)
 [![Maven Central](https://img.shields.io/maven-central/v/net.osslabz/coingecko-java?label=Maven%20Central)](https://search.maven.org/artifact/net.osslabz/coingecko-java)
 
 Java wrapper for the CoinGecko API.
 <p align="center">
-    <img src="https://i.ibb.co/sRLCZk2/java-gecko-200.png" alt="java-gecko-200" alt="CoinGecko-Java logo" alt="CoinGecko-Java Logo"/>
+    <img src="https://i.ibb.co/sRLCZk2/java-gecko-200.png" alt="CoinGecko-Java Logo"/>
 </p>
 
 
-This is a (synced) fork of [Philipinho/CoinGecko-Java](https://github.com/Philipinho/CoinGecko-Java) that is properly releases on [Maven Central](https://search.maven.org/artifact/net.osslabz/coingecko-java).
+This is a (synced) fork of [Philipinho/CoinGecko-Java](https://github.com/Philipinho/CoinGecko-Java) that is properly released on [Maven Central](https://search.maven.org/artifact/net.osslabz/coingecko-java).
 
 Once [Enable CI and Automated Release Management #41](https://github.com/Philipinho/CoinGecko-Java/pull/41) is merged and the original project is published this fork will be discontinued.
 
@@ -23,7 +24,7 @@ Usage
 <dependency>
     <groupId>net.osslabz</groupId>
     <artifactId>coingecko-java</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
@@ -31,7 +32,7 @@ Usage
 
 ```groovy
 dependencies {
-    implementation 'net.osslabz:coingecko-java:1.0.0'
+    implementation 'net.osslabz:coingecko-java:1.2.0'
 }
 ```
 
@@ -39,7 +40,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation ("net.osslabz:coingecko-java:1.0.0")
+    implementation ("net.osslabz:coingecko-java:1.2.0")
 }
 ```
 
