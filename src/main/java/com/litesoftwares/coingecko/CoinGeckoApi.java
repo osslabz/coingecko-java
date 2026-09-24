@@ -30,6 +30,22 @@ public class CoinGeckoApi {
             Long readTimeoutSeconds,
             Long writeTimeoutSeconds,
             ApiToken apiToken) {
+        return createService(
+                serviceClass,
+                connectionTimeoutSeconds,
+                readTimeoutSeconds,
+                writeTimeoutSeconds,
+                apiToken,
+                apiToken != null && TokenType.PRO.equals(apiToken.getType()) ? API_BASE_URL_PRO : API_BASE_URL_PUBLIC);
+    }
+
+    <S> S createService(
+            Class<S> serviceClass,
+            Long connectionTimeoutSeconds,
+            Long readTimeoutSeconds,
+            Long writeTimeoutSeconds,
+            ApiToken apiToken,
+            String baseUrl) {
         OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder()
                 .connectTimeout(connectionTimeoutSeconds, TimeUnit.SECONDS)
                 .readTimeout(readTimeoutSeconds, TimeUnit.SECONDS)
@@ -52,10 +68,7 @@ public class CoinGeckoApi {
         okHttpClient = httpClientBuilder.build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(
-                        apiToken != null && TokenType.PRO.equals(apiToken.getType())
-                                ? API_BASE_URL_PRO
-                                : API_BASE_URL_PUBLIC)
+                .baseUrl(baseUrl)
                 .client(okHttpClient)
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();

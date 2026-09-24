@@ -55,6 +55,11 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
                 CoinGeckoApiService.class, connectionTimeoutSeconds, readTimeoutSeconds, writeTimeoutSeconds, apiToken);
     }
 
+    CoinGeckoApiClientImpl(CoinGeckoApi coinGeckoApi, CoinGeckoApiService coinGeckoApiService) {
+        this.coinGeckoApi = coinGeckoApi;
+        this.coinGeckoApiService = coinGeckoApiService;
+    }
+
     @Override
     public Ping ping() {
         return coinGeckoApi.executeSync(coinGeckoApiService.ping());
