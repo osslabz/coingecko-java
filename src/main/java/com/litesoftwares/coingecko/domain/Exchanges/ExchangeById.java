@@ -8,7 +8,7 @@ import lombok.*;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class ExchangeById extends Exchanges {
     @JsonProperty("tickers")
     private List<Ticker> tickers;
