@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- Public API: the eight-argument getCoinMarkets overload is published. -->
+    <suppress checks="ParameterNumber" files="[\\/]CoinGeckoApiClient\.java$"/>
+    <!-- Public API: implements the published eight-argument getCoinMarkets overload. -->
+    <suppress checks="ParameterNumber" files="[\\/]CoinGeckoApiClientImpl\.java$"/>
+    <!-- Public API: the Retrofit interface mirrors the eight query parameters of coins/markets. -->
+    <suppress checks="ParameterNumber" files="[\\/]CoinGeckoApiService\.java$"/>
+</suppressions>

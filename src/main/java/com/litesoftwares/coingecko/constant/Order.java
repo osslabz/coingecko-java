@@ -1,5 +1,7 @@
 package com.litesoftwares.coingecko.constant;
 
+// Public API: a private constructor would remove the published default constructor.
+@SuppressWarnings("PMD.InstantiableUtilityClass")
 public class Order {
     public static String GECKO_ASC = "gecko_asc";
     public static String GECKO_DESC = "gecko_desc";

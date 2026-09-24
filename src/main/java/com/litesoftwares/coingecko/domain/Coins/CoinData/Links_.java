@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
+// Public API: the class name is published.
+@SuppressWarnings("PMD.ClassNamingConventions")
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Links_ {
