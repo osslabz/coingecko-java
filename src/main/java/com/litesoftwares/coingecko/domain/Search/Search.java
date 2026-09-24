@@ -2,9 +2,8 @@ package com.litesoftwares.coingecko.domain.Search;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -14,6 +13,7 @@ public class Search {
 
     @JsonProperty("exchanges")
     private List<SearchExchange> exchanges = null;
+
     @JsonProperty("categories")
     private List<SearchCategory> categories = null;
 

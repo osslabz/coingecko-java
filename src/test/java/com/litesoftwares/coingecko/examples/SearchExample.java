@@ -15,5 +15,4 @@ public class SearchExample {
 
         System.out.println(search);
     }
-
 }

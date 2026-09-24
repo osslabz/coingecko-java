@@ -10,11 +10,13 @@ import lombok.*;
 public class Rate {
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("unit")
     private String unit;
+
     @JsonProperty("value")
     private BigDecimal value;
+
     @JsonProperty("type")
     private String type;
-
 }

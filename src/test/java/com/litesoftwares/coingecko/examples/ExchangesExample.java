@@ -6,7 +6,6 @@ import com.litesoftwares.coingecko.domain.Exchanges.Exchanges;
 import com.litesoftwares.coingecko.domain.Exchanges.ExchangesList;
 import com.litesoftwares.coingecko.domain.Exchanges.ExchangesTickersById;
 import com.litesoftwares.coingecko.impl.CoinGeckoApiClientImpl;
-
 import java.math.BigDecimal;
 import java.util.List;
 

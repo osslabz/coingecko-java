@@ -9,7 +9,7 @@ import lombok.*;
 public class EventCountryData {
     @JsonProperty("country")
     private String country;
+
     @JsonProperty("code")
     private String code;
-
 }

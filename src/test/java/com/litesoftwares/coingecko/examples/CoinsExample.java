@@ -9,7 +9,6 @@ import com.litesoftwares.coingecko.domain.Coins.CoinList;
 import com.litesoftwares.coingecko.domain.Coins.CoinMarkets;
 import com.litesoftwares.coingecko.domain.Coins.CoinTickerById;
 import com.litesoftwares.coingecko.impl.CoinGeckoApiClientImpl;
-
 import java.util.List;
 
 public class CoinsExample {

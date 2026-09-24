@@ -6,10 +6,7 @@ import lombok.*;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class Global {
     @JsonProperty("data")
     private GlobalData data;
-
-
 }

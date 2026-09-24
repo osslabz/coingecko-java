@@ -9,11 +9,13 @@ import lombok.Data;
 public class SearchNft {
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("symbol")
     private String symbol;
+
     @JsonProperty("thumb")
     private String thumb;
-
 }

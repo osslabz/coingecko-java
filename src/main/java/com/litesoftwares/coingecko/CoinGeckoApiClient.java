@@ -12,7 +12,6 @@ import com.litesoftwares.coingecko.domain.Global.Global;
 import com.litesoftwares.coingecko.domain.Search.Search;
 import com.litesoftwares.coingecko.domain.Search.Trending;
 import com.litesoftwares.coingecko.domain.Status.StatusUpdates;
-
 import java.util.List;
 import java.util.Map;
 
@@ -21,13 +20,24 @@ public interface CoinGeckoApiClient {
 
     Map<String, Map<String, Double>> getPrice(String ids, String vsCurrencies);
 
-    Map<String, Map<String, Double>> getPrice(String ids, String vsCurrencies, boolean includeMarketCap, boolean include24hrVol,
-                                              boolean include24hrChange, boolean includeLastUpdatedAt);
+    Map<String, Map<String, Double>> getPrice(
+            String ids,
+            String vsCurrencies,
+            boolean includeMarketCap,
+            boolean include24hrVol,
+            boolean include24hrChange,
+            boolean includeLastUpdatedAt);
 
     Map<String, Map<String, Double>> getTokenPrice(String id, String contractAddress, String vsCurrencies);
 
-    Map<String, Map<String, Double>> getTokenPrice(String id, String contractAddress, String vsCurrencies, boolean includeMarketCap,
-                         boolean include24hrVol, boolean include24hrChange, boolean includeLastUpdatedAt);
+    Map<String, Map<String, Double>> getTokenPrice(
+            String id,
+            String contractAddress,
+            String vsCurrencies,
+            boolean includeMarketCap,
+            boolean include24hrVol,
+            boolean include24hrChange,
+            boolean includeLastUpdatedAt);
 
     List<String> getSupportedVsCurrencies();
 
@@ -35,13 +45,35 @@ public interface CoinGeckoApiClient {
 
     List<CoinMarkets> getCoinMarkets(String vsCurrency);
 
-    List<CoinMarkets> getCoinMarkets(String vsCurrency,  String ids, String order,  Integer perPage, Integer page,  boolean sparkline, String priceChangePercentage);
+    List<CoinMarkets> getCoinMarkets(
+            String vsCurrency,
+            String ids,
+            String order,
+            Integer perPage,
+            Integer page,
+            boolean sparkline,
+            String priceChangePercentage);
 
-    List<CoinMarkets> getCoinMarkets(String vsCurrency,  String ids, String category, String order,  Integer perPage, Integer page,  boolean sparkline, String priceChangePercentage);
+    List<CoinMarkets> getCoinMarkets(
+            String vsCurrency,
+            String ids,
+            String category,
+            String order,
+            Integer perPage,
+            Integer page,
+            boolean sparkline,
+            String priceChangePercentage);
 
     CoinFullData getCoinById(String id);
 
-    CoinFullData getCoinById(String id, boolean localization, boolean tickers, boolean marketData, boolean communityData, boolean developerData, boolean sparkline);
+    CoinFullData getCoinById(
+            String id,
+            boolean localization,
+            boolean tickers,
+            boolean marketData,
+            boolean communityData,
+            boolean developerData,
+            boolean sparkline);
 
     CoinTickerById getCoinTickerById(String id);
 
@@ -95,7 +127,8 @@ public interface CoinGeckoApiClient {
     Events getEvents();
 
     @Deprecated
-    Events getEvents(String countryCode, String type, Integer page, boolean upcomingEventsOnly, String fromDate, String toDate);
+    Events getEvents(
+            String countryCode, String type, Integer page, boolean upcomingEventsOnly, String fromDate, String toDate);
 
     @Deprecated
     EventCountries getEventsCountries();

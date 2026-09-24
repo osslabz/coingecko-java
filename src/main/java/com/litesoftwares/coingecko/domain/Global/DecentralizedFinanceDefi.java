@@ -10,5 +10,3 @@ public class DecentralizedFinanceDefi {
     @JsonProperty("data")
     private DecentralizedFinanceDefiData data;
 }
-
-

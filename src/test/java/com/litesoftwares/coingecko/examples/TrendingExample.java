@@ -4,7 +4,7 @@ import com.litesoftwares.coingecko.CoinGeckoApiClient;
 import com.litesoftwares.coingecko.domain.Search.Trending;
 import com.litesoftwares.coingecko.impl.CoinGeckoApiClientImpl;
 
-public class TrendingExample{
+public class TrendingExample {
 
     public static void main(String[] args) {
 
@@ -13,5 +13,4 @@ public class TrendingExample{
         Trending trending = client.getTrending();
         System.out.println(trending.getCoins());
     }
-
 }

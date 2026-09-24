@@ -12,31 +12,35 @@ import com.litesoftwares.coingecko.domain.Global.Global;
 import com.litesoftwares.coingecko.domain.Search.Search;
 import com.litesoftwares.coingecko.domain.Search.Trending;
 import com.litesoftwares.coingecko.domain.Status.StatusUpdates;
+import java.util.List;
+import java.util.Map;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-
-import java.util.List;
-import java.util.Map;
 
 public interface CoinGeckoApiService {
     @GET("ping")
     Call<Ping> ping();
 
     @GET("simple/price")
-    Call<Map<String,Map<String, Double>>> getPrice(@Query("ids") String ids,
-                                      @Query("vs_currencies") String vsCurrencies,
-                                      @Query("include_market_cap") boolean includeMarketCap,
-                                      @Query("include_24hr_vol") boolean include24hrVol,
-                                      @Query("include_24hr_change") boolean include24hrChange,
-                                      @Query("include_last_updated_at") boolean includeLastUpdatedAt);
+    Call<Map<String, Map<String, Double>>> getPrice(
+            @Query("ids") String ids,
+            @Query("vs_currencies") String vsCurrencies,
+            @Query("include_market_cap") boolean includeMarketCap,
+            @Query("include_24hr_vol") boolean include24hrVol,
+            @Query("include_24hr_change") boolean include24hrChange,
+            @Query("include_last_updated_at") boolean includeLastUpdatedAt);
 
     @GET("simple/token_price/{id}")
-    Call<Map<String,Map<String, Double>>> getTokenPrice(@Path("id") String id, @Query("contract_addresses") String contractAddress,
-                               @Query("vs_currencies") String vsCurrencies, @Query("include_market_cap") boolean includeMarketCap,
-                               @Query("include_24hr_vol") boolean include24hrVol, @Query("include_24hr_change") boolean include24hrChange,
-                               @Query("include_last_updated_at") boolean includeLastUpdatedAt);
+    Call<Map<String, Map<String, Double>>> getTokenPrice(
+            @Path("id") String id,
+            @Query("contract_addresses") String contractAddress,
+            @Query("vs_currencies") String vsCurrencies,
+            @Query("include_market_cap") boolean includeMarketCap,
+            @Query("include_24hr_vol") boolean include24hrVol,
+            @Query("include_24hr_change") boolean include24hrChange,
+            @Query("include_last_updated_at") boolean includeLastUpdatedAt);
 
     @GET("simple/supported_vs_currencies")
     Call<List<String>> getSupportedVsCurrencies();
@@ -45,45 +49,66 @@ public interface CoinGeckoApiService {
     Call<List<CoinList>> getCoinList();
 
     @GET("coins/markets")
-    Call<List<CoinMarkets>> getCoinMarkets(@Query("vs_currency") String vsCurrency, @Query("ids") String ids,
-                                           @Query("category") String category,
-                                           @Query("order") String order, @Query("per_page") Integer perPage,
-                                           @Query("page") Integer page, @Query("sparkline") boolean sparkline,
-                                           @Query("price_change_percentage") String priceChangePercentage);
+    Call<List<CoinMarkets>> getCoinMarkets(
+            @Query("vs_currency") String vsCurrency,
+            @Query("ids") String ids,
+            @Query("category") String category,
+            @Query("order") String order,
+            @Query("per_page") Integer perPage,
+            @Query("page") Integer page,
+            @Query("sparkline") boolean sparkline,
+            @Query("price_change_percentage") String priceChangePercentage);
 
     @GET("coins/{id}")
-    Call<CoinFullData> getCoinById(@Path("id") String id, @Query("localization") boolean localization, @Query("tickers") boolean tickers,
-                               @Query("market_data") boolean marketData, @Query("community_data") boolean communityData,
-                               @Query("developer_data") boolean developerData, @Query("sparkline") boolean sparkline);
+    Call<CoinFullData> getCoinById(
+            @Path("id") String id,
+            @Query("localization") boolean localization,
+            @Query("tickers") boolean tickers,
+            @Query("market_data") boolean marketData,
+            @Query("community_data") boolean communityData,
+            @Query("developer_data") boolean developerData,
+            @Query("sparkline") boolean sparkline);
 
     @GET("coins/{id}/tickers")
-    Call<CoinTickerById> getCoinTickerById(@Path("id") String id, @Query("exchange_ids") String exchangeIds,
-                                           @Query("page") Integer page,@Query("order") String order);
+    Call<CoinTickerById> getCoinTickerById(
+            @Path("id") String id,
+            @Query("exchange_ids") String exchangeIds,
+            @Query("page") Integer page,
+            @Query("order") String order);
 
     @GET("coins/{id}/history")
-    Call<CoinHistoryById> getCoinHistoryById(@Path("id") String id, @Query("date") String date,
-                                             @Query("localization") boolean localization);
+    Call<CoinHistoryById> getCoinHistoryById(
+            @Path("id") String id, @Query("date") String date, @Query("localization") boolean localization);
 
     @GET("coins/{id}/market_chart")
-    Call<MarketChart> getCoinMarketChartById(@Path("id") String id, @Query("vs_currency") String vsCurrency,
-                                        @Query("days") Integer days);
+    Call<MarketChart> getCoinMarketChartById(
+            @Path("id") String id, @Query("vs_currency") String vsCurrency, @Query("days") Integer days);
 
     @GET("coins/{id}/market_chart")
-    Call<MarketChart> getCoinMarketChartById(@Path("id") String id, @Query("vs_currency") String vsCurrency,
-                                             @Query("days") Integer days, @Query("interval") String interval);
+    Call<MarketChart> getCoinMarketChartById(
+            @Path("id") String id,
+            @Query("vs_currency") String vsCurrency,
+            @Query("days") Integer days,
+            @Query("interval") String interval);
 
     @GET("coins/{id}/market_chart/range")
-    Call<MarketChart> getCoinMarketChartRangeById(@Path("id") String id, @Query("vs_currency") String vsCurrency,
-                                                  @Query("from") String from, @Query("to") String to);
+    Call<MarketChart> getCoinMarketChartRangeById(
+            @Path("id") String id,
+            @Query("vs_currency") String vsCurrency,
+            @Query("from") String from,
+            @Query("to") String to);
 
     @GET("coins/{id}/ohlc")
-    Call<List<List<String>>> getCoinOHLC(@Path("id") String id, @Query("vs_currency") String vsCurrency, @Query("days") Integer days);
+    Call<List<List<String>>> getCoinOHLC(
+            @Path("id") String id, @Query("vs_currency") String vsCurrency, @Query("days") Integer days);
 
     @GET("coins/{id}/status_updates")
-    Call<StatusUpdates> getCoinStatusUpdateById(@Path("id") String id, @Query("per_page") Integer perPage, @Query("page") Integer page);
+    Call<StatusUpdates> getCoinStatusUpdateById(
+            @Path("id") String id, @Query("per_page") Integer perPage, @Query("page") Integer page);
 
     @GET("coins/{id}/contract/{contract_address}")
-    Call<CoinFullData> getCoinInfoByContractAddress(@Path("id") String id, @Path("contract_address") String contractAddress);
+    Call<CoinFullData> getCoinInfoByContractAddress(
+            @Path("id") String id, @Path("contract_address") String contractAddress);
 
     @GET("asset_platforms")
     Call<List<AssetPlatforms>> getAssetPlatforms();
@@ -98,15 +123,18 @@ public interface CoinGeckoApiService {
     Call<ExchangeById> getExchangesById(@Path("id") String id);
 
     @GET("exchanges/{id}/tickers")
-    Call<ExchangesTickersById> getExchangesTickersById(@Path("id") String id, @Query("coin_ids") String coinIds,
-                                                       @Query("page") Integer page, @Query("order") String order);
+    Call<ExchangesTickersById> getExchangesTickersById(
+            @Path("id") String id,
+            @Query("coin_ids") String coinIds,
+            @Query("page") Integer page,
+            @Query("order") String order);
 
     @GET("exchanges/{id}/status_updates")
-    Call<StatusUpdates> getExchangesStatusUpdatesById(@Path("id") String id, @Query("per_page")Integer perPage,
-                                                               @Query("page") Integer page);
+    Call<StatusUpdates> getExchangesStatusUpdatesById(
+            @Path("id") String id, @Query("per_page") Integer perPage, @Query("page") Integer page);
 
     @GET("exchanges/{id}/volume_chart")
-    Call<List<List<String>>> getExchangesVolumeChart(@Path("id") String id,@Query("days") Integer days);
+    Call<List<List<String>>> getExchangesVolumeChart(@Path("id") String id, @Query("days") Integer days);
 
     @Deprecated
     @GET("status_updates")
@@ -114,8 +142,11 @@ public interface CoinGeckoApiService {
 
     @Deprecated
     @GET("status_updates")
-    Call<StatusUpdates> getStatusUpdates(@Query("category") String category, @Query("project_type") String projectType,
-                                  @Query("per_page") Integer perPage, @Query("page") Integer page);
+    Call<StatusUpdates> getStatusUpdates(
+            @Query("category") String category,
+            @Query("project_type") String projectType,
+            @Query("per_page") Integer perPage,
+            @Query("page") Integer page);
 
     @Deprecated
     @GET("events")
@@ -123,9 +154,13 @@ public interface CoinGeckoApiService {
 
     @Deprecated
     @GET("events")
-    Call<Events> getEvents(@Query("country_code") String countryCode, @Query("type") String type,
-                           @Query("page") Integer page, @Query("upcoming_events_only") boolean upcomingEventsOnly,
-                           @Query("from_date") String fromDate, @Query("to_date") String toDate);
+    Call<Events> getEvents(
+            @Query("country_code") String countryCode,
+            @Query("type") String type,
+            @Query("page") Integer page,
+            @Query("upcoming_events_only") boolean upcomingEventsOnly,
+            @Query("from_date") String fromDate,
+            @Query("to_date") String toDate);
 
     @Deprecated
     @GET("events/countries")

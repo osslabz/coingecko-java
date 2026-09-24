@@ -10,7 +10,7 @@ public class PublicInterestStats {
 
     @JsonProperty("alexa_rank")
     private long alexaRank;
+
     @JsonProperty("bing_matches")
     private long bingMatches;
-
 }

@@ -9,12 +9,13 @@ import lombok.Data;
 public class AssetPlatforms {
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("chain_identifier")
     private long chainIdentifier;
+
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("shortname")
     private String shortname;
-
-    }
-
+}

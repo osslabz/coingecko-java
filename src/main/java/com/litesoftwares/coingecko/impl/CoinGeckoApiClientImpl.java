@@ -3,6 +3,7 @@ package com.litesoftwares.coingecko.impl;
 import com.litesoftwares.coingecko.CoinGeckoApi;
 import com.litesoftwares.coingecko.CoinGeckoApiClient;
 import com.litesoftwares.coingecko.CoinGeckoApiService;
+import com.litesoftwares.coingecko.domain.ApiToken;
 import com.litesoftwares.coingecko.domain.AssetPlatforms;
 import com.litesoftwares.coingecko.domain.Coins.CoinFullData;
 import com.litesoftwares.coingecko.domain.Coins.CoinHistoryById;
@@ -24,8 +25,6 @@ import com.litesoftwares.coingecko.domain.Ping;
 import com.litesoftwares.coingecko.domain.Search.Search;
 import com.litesoftwares.coingecko.domain.Search.Trending;
 import com.litesoftwares.coingecko.domain.Status.StatusUpdates;
-import com.litesoftwares.coingecko.domain.ApiToken;
-
 import java.util.List;
 import java.util.Map;
 
@@ -49,15 +48,11 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
         this(connectionTimeoutSeconds, readTimeoutSeconds, writeTimeoutSeconds, null);
     }
 
-    public CoinGeckoApiClientImpl(Long connectionTimeoutSeconds, Long readTimeoutSeconds, Long writeTimeoutSeconds, ApiToken apiToken) {
+    public CoinGeckoApiClientImpl(
+            Long connectionTimeoutSeconds, Long readTimeoutSeconds, Long writeTimeoutSeconds, ApiToken apiToken) {
         this.coinGeckoApi = new CoinGeckoApi();
         this.coinGeckoApiService = coinGeckoApi.createService(
-                CoinGeckoApiService.class,
-                connectionTimeoutSeconds,
-                readTimeoutSeconds,
-                writeTimeoutSeconds,
-                apiToken
-        );
+                CoinGeckoApiService.class, connectionTimeoutSeconds, readTimeoutSeconds, writeTimeoutSeconds, apiToken);
     }
 
     @Override
@@ -71,8 +66,15 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
     }
 
     @Override
-    public Map<String, Map<String, Double>> getPrice(String ids, String vsCurrencies, boolean includeMarketCap, boolean include24hrVol, boolean include24hrChange, boolean includeLastUpdatedAt) {
-        return coinGeckoApi.executeSync(coinGeckoApiService.getPrice(ids, vsCurrencies, includeMarketCap, include24hrVol, include24hrChange, includeLastUpdatedAt));
+    public Map<String, Map<String, Double>> getPrice(
+            String ids,
+            String vsCurrencies,
+            boolean includeMarketCap,
+            boolean include24hrVol,
+            boolean include24hrChange,
+            boolean includeLastUpdatedAt) {
+        return coinGeckoApi.executeSync(coinGeckoApiService.getPrice(
+                ids, vsCurrencies, includeMarketCap, include24hrVol, include24hrChange, includeLastUpdatedAt));
     }
 
     @Override
@@ -81,8 +83,22 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
     }
 
     @Override
-    public Map<String, Map<String, Double>> getTokenPrice(String id, String contractAddress, String vsCurrencies, boolean includeMarketCap, boolean include24hrVol, boolean include24hrChange, boolean includeLastUpdatedAt) {
-        return coinGeckoApi.executeSync(coinGeckoApiService.getTokenPrice(id, contractAddress, vsCurrencies, includeMarketCap, include24hrVol, include24hrChange, includeLastUpdatedAt));
+    public Map<String, Map<String, Double>> getTokenPrice(
+            String id,
+            String contractAddress,
+            String vsCurrencies,
+            boolean includeMarketCap,
+            boolean include24hrVol,
+            boolean include24hrChange,
+            boolean includeLastUpdatedAt) {
+        return coinGeckoApi.executeSync(coinGeckoApiService.getTokenPrice(
+                id,
+                contractAddress,
+                vsCurrencies,
+                includeMarketCap,
+                include24hrVol,
+                include24hrChange,
+                includeLastUpdatedAt));
     }
 
     @Override
@@ -101,13 +117,29 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
     }
 
     @Override
-    public List<CoinMarkets> getCoinMarkets(String vsCurrency, String ids, String order, Integer perPage, Integer page, boolean sparkline, String priceChangePercentage) {
-        return getCoinMarkets(vsCurrency,ids,null,order,perPage,page,sparkline,priceChangePercentage);
+    public List<CoinMarkets> getCoinMarkets(
+            String vsCurrency,
+            String ids,
+            String order,
+            Integer perPage,
+            Integer page,
+            boolean sparkline,
+            String priceChangePercentage) {
+        return getCoinMarkets(vsCurrency, ids, null, order, perPage, page, sparkline, priceChangePercentage);
     }
 
     @Override
-    public List<CoinMarkets> getCoinMarkets(String vsCurrency, String ids, String category,  String order, Integer perPage, Integer page, boolean sparkline, String priceChangePercentage) {
-        return coinGeckoApi.executeSync(coinGeckoApiService.getCoinMarkets(vsCurrency,ids,category,order,perPage,page,sparkline,priceChangePercentage));
+    public List<CoinMarkets> getCoinMarkets(
+            String vsCurrency,
+            String ids,
+            String category,
+            String order,
+            Integer perPage,
+            Integer page,
+            boolean sparkline,
+            String priceChangePercentage) {
+        return coinGeckoApi.executeSync(coinGeckoApiService.getCoinMarkets(
+                vsCurrency, ids, category, order, perPage, page, sparkline, priceChangePercentage));
     }
 
     @Override
@@ -116,8 +148,16 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
     }
 
     @Override
-    public CoinFullData getCoinById(String id, boolean localization, boolean tickers, boolean marketData, boolean communityData, boolean developerData, boolean sparkline) {
-        return coinGeckoApi.executeSync(coinGeckoApiService.getCoinById(id, localization, tickers, marketData, communityData, developerData, sparkline));
+    public CoinFullData getCoinById(
+            String id,
+            boolean localization,
+            boolean tickers,
+            boolean marketData,
+            boolean communityData,
+            boolean developerData,
+            boolean sparkline) {
+        return coinGeckoApi.executeSync(coinGeckoApiService.getCoinById(
+                id, localization, tickers, marketData, communityData, developerData, sparkline));
     }
 
     @Override
@@ -245,8 +285,10 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
 
     @Deprecated
     @Override
-    public Events getEvents(String countryCode, String type, Integer page, boolean upcomingEventsOnly, String fromDate, String toDate) {
-        return coinGeckoApi.executeSync(coinGeckoApiService.getEvents(countryCode, type, page, upcomingEventsOnly, fromDate, toDate));
+    public Events getEvents(
+            String countryCode, String type, Integer page, boolean upcomingEventsOnly, String fromDate, String toDate) {
+        return coinGeckoApi.executeSync(
+                coinGeckoApiService.getEvents(countryCode, type, page, upcomingEventsOnly, fromDate, toDate));
     }
 
     @Deprecated

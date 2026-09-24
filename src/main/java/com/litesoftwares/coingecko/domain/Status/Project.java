@@ -10,13 +10,16 @@ import lombok.*;
 public class Project {
     @JsonProperty("type")
     private String type;
+
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("symbol")
     private String symbol;
+
     @JsonProperty("image")
     private Image image;
-
 }

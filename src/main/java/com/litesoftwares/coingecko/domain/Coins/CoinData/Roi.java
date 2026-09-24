@@ -9,9 +9,10 @@ import lombok.*;
 public class Roi {
     @JsonProperty("times")
     private float times;
+
     @JsonProperty("currency")
     private String currency;
+
     @JsonProperty("percentage")
     private float percentage;
-
 }

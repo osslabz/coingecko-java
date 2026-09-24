@@ -9,9 +9,10 @@ import lombok.*;
 public class Market {
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("identifier")
     private String identifier;
+
     @JsonProperty("has_trading_incentive")
     private boolean hasTradingIncentive;
-
 }

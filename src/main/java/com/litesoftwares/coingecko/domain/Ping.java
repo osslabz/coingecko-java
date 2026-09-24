@@ -9,5 +9,4 @@ import lombok.*;
 public class Ping {
     @JsonProperty("gecko_says")
     private String geckoSays;
-
 }

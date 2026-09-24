@@ -9,6 +9,7 @@ import lombok.Data;
 public class SearchCategory {
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("name")
     private String name;
 }

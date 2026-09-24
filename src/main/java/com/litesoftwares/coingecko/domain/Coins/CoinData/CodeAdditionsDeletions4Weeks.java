@@ -9,7 +9,7 @@ import lombok.*;
 public class CodeAdditionsDeletions4Weeks {
     @JsonProperty("additions")
     private long additions;
+
     @JsonProperty("deletions")
     private long deletions;
-
 }

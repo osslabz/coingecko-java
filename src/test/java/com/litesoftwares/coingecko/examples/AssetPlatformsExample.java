@@ -3,7 +3,7 @@ package com.litesoftwares.coingecko.examples;
 import com.litesoftwares.coingecko.CoinGeckoApiClient;
 import com.litesoftwares.coingecko.impl.CoinGeckoApiClientImpl;
 
-public class AssetPlatformsExample{
+public class AssetPlatformsExample {
 
     public static void main(String[] args) {
 
@@ -11,5 +11,4 @@ public class AssetPlatformsExample{
 
         System.out.println(client.getAssetPlatforms());
     }
-
 }

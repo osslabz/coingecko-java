@@ -9,17 +9,22 @@ import lombok.Data;
 public class SearchCoin {
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("api_symbol")
     private String apiSymbol;
+
     @JsonProperty("symbol")
     private String symbol;
+
     @JsonProperty("market_cap_rank")
     private int marketCapRank;
+
     @JsonProperty("thumb")
     private String thumb;
+
     @JsonProperty("large")
     private String large;
-
 }

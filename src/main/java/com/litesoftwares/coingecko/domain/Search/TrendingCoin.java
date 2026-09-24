@@ -9,5 +9,4 @@ import lombok.Data;
 public class TrendingCoin {
     @JsonProperty("item")
     private TrendingCoinItem item;
-
 }
