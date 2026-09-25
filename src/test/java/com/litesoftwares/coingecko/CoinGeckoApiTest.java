@@ -64,6 +64,18 @@ class CoinGeckoApiTest {
     }
 
     @Test
+    void sendsTheProKeyInItsHeader() throws InterruptedException {
+        CoinGeckoApiService service = server.createService(api, ApiToken.pro("pro-key"));
+        server.enqueue(200, "{}");
+
+        api.executeSync(service.ping());
+
+        RecordedRequest request = takeRequest();
+        assertEquals("pro-key", request.header("x-cg-pro-api-key"));
+        assertNull(request.header("x-cg-demo-api-key"));
+    }
+
+    @Test
     void sendsNoKeyWithoutAToken() throws InterruptedException {
         CoinGeckoApiService service = server.createService(api, null);
         server.enqueue(200, "{}");
