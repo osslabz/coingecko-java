@@ -17,7 +17,7 @@ public final class Currency {
     public static final String CHF = "chf";
     public static final String CLP = "clp";
     public static final String CNY = "cny";
-    public static final String CZK = "czl";
+    public static final String CZK = "czk";
     public static final String DKK = "dkk";
     public static final String EUR = "eur";
     public static final String GBP = "gbp";

@@ -8,6 +8,7 @@ import com.litesoftwares.coingecko.CoinGeckoApi;
 import com.litesoftwares.coingecko.CoinGeckoApiClient;
 import com.litesoftwares.coingecko.LocalCoinGeckoServer;
 import com.litesoftwares.coingecko.LocalCoinGeckoServer.RecordedRequest;
+import com.litesoftwares.coingecko.constant.Currency;
 import com.litesoftwares.coingecko.domain.ApiToken;
 import com.litesoftwares.coingecko.domain.Coins.CoinFullData;
 import com.litesoftwares.coingecko.domain.Coins.CoinMarkets;
@@ -59,6 +60,12 @@ class CoinGeckoApiClientImplTest {
                         "price with defaults",
                         c -> c.getPrice("bitcoin", "usd"),
                         "/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=false"
+                                + "&include_24hr_vol=false&include_24hr_change=false&include_last_updated_at=false",
+                        "{}"),
+                new Endpoint(
+                        "price in Czech koruna",
+                        c -> c.getPrice("bitcoin", Currency.CZK),
+                        "/api/v3/simple/price?ids=bitcoin&vs_currencies=czk&include_market_cap=false"
                                 + "&include_24hr_vol=false&include_24hr_change=false&include_last_updated_at=false",
                         "{}"),
                 new Endpoint(
